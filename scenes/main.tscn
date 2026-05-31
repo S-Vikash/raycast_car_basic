@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://caaajvvsxxtwe"]
+
+[ext_resource type="Texture2D" uid="uid://b1ataeryfds5n" path="res://icon.svg" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://3gf3imytw754" path="res://scenes/rb_car.tscn" id="2_sugp2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_sugp2"]
+background_mode = 2
+sky = SubResource("Sky_0wfyh")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5qli"]
+albedo_texture = ExtResource("2_0wfyh")
+uv1_scale = Vector3(100, 100, 100)
+
+[node name="Main" type="Node3D" unique_id=1044168524]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=902901886]
+environment = SubResource("Environment_sugp2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1102964808]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=933705326]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=709771201]
+transform = Transform3D(-4.3711385e-08, 2.8000002, 0, -0.99999994, -1.223919e-07, 0, 0, 0, 1, 0.099999964, -0.19999999, 2.5)
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=594155388]
+transform = Transform3D(-4.3711385e-08, 2.8000002, 0, -0.99999994, -1.223919e-07, 0, 0, 0, 1, 0.099999964, -0.19999999, 3.8000002)
+height = 1.0
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=1406573716]
+transform = Transform3D(-4.371139e-08, 0, 3.0800002, 0, 1, 0, -1, 0, -1.346311e-07, 1.7, 0, 6.5)
+polygon = PackedVector2Array(0, 0, 0, 1, 1.999304, -0.06319785, 1, 0)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=819701519]
+transform = Transform3D(1.3113416e-07, 0, -3.0800002, 0, 1, 0, 1, 0, 4.0389324e-07, 1.7, 0, 8.5)
+polygon = PackedVector2Array(0, 0, 0, 1, 2, 0, 1, 0)
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=1403251075]
+transform = Transform3D(1.3113413e-07, 0, -4.533761, 0, 1, 0, 0.9999998, 0, 5.9453095e-07, 1.7, 0, 6.5)
+polygon = PackedVector2Array(-8, 0.5, -8, 4, 5.6, 0.5, 2, 0.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2033168267]
+transform = Transform3D(2.7, 0, 0, 0, 1, 0, 0, 0, 3.2, 0, 0, 0)
+size = Vector3(150, 1, 150)
+material = SubResource("StandardMaterial3D_o5qli")
+
+[node name="Car" parent="." unique_id=1486739241 instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 15)
+back_grip = 0.3
