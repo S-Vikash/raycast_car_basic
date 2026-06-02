@@ -39,10 +39,14 @@ This project demonstrates how to create a basic vehicle controller without using
 * Better tire grip simulation
 * Multiple camera modes
 
-## Preview
+## Suspension Preview
 
-Add a GIF or MP4 demonstration here.
+https://github.com/user-attachments/assets/ecef06ea-6834-4c21-8691-5903ddb57be9
 
----
+
+## Car Demo
+
+https://github.com/user-attachments/assets/d126e22c-3871-4473-9c27-bc85854cf767
+
 
 Created as a learning project for experimenting with custom vehicle physics in Godot.
